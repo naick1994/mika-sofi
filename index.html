@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mika &amp; Sofi — Pro Kitesurf</title>
+<meta name="description" content="Mika &amp; Sofi — two professional kitesurfers, one story. Mikaili Sol, 8x World Champion, and Sofia Monti, Duotone pro rider.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Archivo:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0d0f; --bg-soft:#13161a; --bg-card:#16191e;
+  --ink:#f4f5f6; --ink-soft:#a7adb4; --ink-faint:#6b727a;
+  --accent:#2E9BD6; --accent-soft:#6bbde6;
+  --line:rgba(255,255,255,.10);
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'Archivo',system-ui,sans-serif;
+  --maxw:1180px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+section{padding:120px 24px;position:relative}
+.wrap{max-width:var(--maxw);margin:0 auto}
+.eyebrow{font-size:12px;letter-spacing:.35em;text-transform:uppercase;color:var(--accent-soft);font-weight:500;margin-bottom:22px}
+h2.title{font-family:var(--serif);font-weight:300;font-size:clamp(34px,5vw,60px);line-height:1.05;letter-spacing:-.01em;margin-bottom:28px}
+h3{font-family:var(--serif);font-weight:400;font-size:28px;line-height:1.1}
+p.lead{font-size:18px;color:var(--ink-soft);max-width:62ch}
+.accent{color:var(--accent-soft)}
+
+/* NAV */
+header{position:fixed;top:0;left:0;right:0;z-index:100;transition:.4s;padding:22px 24px}
+header.scrolled{background:rgba(11,13,15,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:14px 24px}
+.nav{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.nav-logo img{height:54px;width:auto;transition:.4s;opacity:0}
+header.scrolled .nav-logo img{height:42px;opacity:1}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);transition:.25s;font-weight:400}
+.nav-links a:hover{color:var(--ink)}
+.lang{display:flex;gap:4px;align-items:center;border:1px solid var(--line);border-radius:999px;padding:4px}
+.lang button{background:none;border:none;color:var(--ink-faint);font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.06em;cursor:pointer;padding:4px 9px;border-radius:999px;transition:.2s}
+.lang button.on{background:var(--accent);color:#fff}
+.burger{display:none;background:none;border:none;color:var(--ink);font-size:26px;cursor:pointer;line-height:1}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:flex-end;padding:0 24px 80px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 38%;filter:saturate(.92) contrast(1.04)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,13,15,.45) 0%,rgba(11,13,15,.3) 35%,rgba(11,13,15,.94) 100%)}
+.hero-inner{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;width:100%}
+.hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(52px,11vw,140px);line-height:.92;letter-spacing:-.02em}
+.hero h1 em{font-style:italic;color:var(--accent-soft)}
+.hero-logo{width:min(620px,82vw);height:auto;margin-bottom:6px}
+.hero-sub{margin-top:24px;font-size:clamp(16px,2vw,21px);color:var(--ink-soft);max-width:54ch}
+.hero-tags{margin-top:34px;display:flex;flex-wrap:wrap;gap:10px}
+.tag{border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.scroll-cue{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:3;color:var(--ink-faint);font-size:11px;letter-spacing:.3em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px}
+.scroll-cue span{display:block;width:1px;height:40px;background:linear-gradient(var(--ink-faint),transparent);animation:cue 2s infinite}
+@keyframes cue{0%{opacity:.2;transform:scaleY(.4)}50%{opacity:1}100%{opacity:.2;transform:scaleY(.4)}}
+
+/* ABOUT */
+.about{background:var(--bg)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.stat-row{display:flex;gap:48px;margin-top:40px;flex-wrap:wrap}
+.stat .n{font-family:var(--serif);font-size:46px;line-height:1;color:var(--ink)}
+.stat .l{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-top:8px}
+.about-photo{border-radius:4px;overflow:hidden;aspect-ratio:4/3}
+.about-photo img{width:100%;height:100%;object-fit:cover;object-position:center 35%}
+
+/* ATHLETE */
+.athlete{border-top:1px solid var(--line)}
+.athlete-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:stretch}
+.athlete.rev .athlete-grid{grid-template-columns:1fr 1.1fr}
+.athlete.rev .athlete-media{order:-1}
+.athlete-media{position:relative;border-radius:4px;overflow:hidden;min-height:520px;align-self:stretch}
+.athlete-media img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+.athlete-media:hover img{transform:scale(1.04)}
+.handle{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--accent-soft);margin-bottom:20px;font-weight:400}
+.bio{color:var(--ink-soft);font-size:17px;margin-bottom:30px}
+.flag{font-size:15px;color:var(--ink-faint);margin-bottom:8px;letter-spacing:.04em}
+
+/* PALMARES */
+.palmares{margin-top:8px;border-top:1px solid var(--line)}
+.pal-row{display:grid;grid-template-columns:70px 1fr auto;gap:18px;padding:16px 0;border-bottom:1px solid var(--line);align-items:baseline;transition:.25s}
+.pal-row:hover{padding-left:8px}
+.pal-row .yr{font-family:var(--serif);font-size:20px;color:var(--accent-soft)}
+.pal-row .ev{font-size:15px;color:var(--ink)}
+.pal-row .pl{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);white-space:nowrap}
+
+/* GALLERY */
+.gallery{background:var(--bg-soft)}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:50px}
+.gal-grid figure{overflow:hidden;border-radius:3px;aspect-ratio:1;position:relative}
+.gal-grid figure.tall{grid-row:span 2;aspect-ratio:1/2}
+.gal-grid img{width:100%;height:100%;object-fit:cover;transition:transform .9s ease}
+.gal-grid figure:hover img{transform:scale(1.06)}
+
+/* PROJECTS */
+.proj-card{border:1px solid var(--line);border-radius:6px;padding:48px;background:var(--bg-card);display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center}
+.proj-icon{width:64px;height:64px;border:1px solid var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:24px;color:var(--accent-soft)}
+
+/* WORK / CONTACT */
+.work{background:var(--bg-soft);border-top:1px solid var(--line)}
+.work-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px}
+.sponsors{display:flex;gap:30px;align-items:center;margin-top:34px;flex-wrap:wrap}
+.sponsors span{font-family:var(--serif);font-size:26px;color:var(--ink-soft);letter-spacing:.02em}
+form{display:flex;flex-direction:column;gap:18px}
+label{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:-8px}
+input,textarea{background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:14px 16px;color:var(--ink);font-family:var(--sans);font-size:15px;font-weight:300;transition:.2s}
+input:focus,textarea:focus{outline:none;border-color:var(--accent)}
+textarea{resize:vertical;min-height:120px}
+.btn{background:var(--accent);color:#fff;border:none;border-radius:4px;padding:16px;font-family:var(--sans);font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;cursor:pointer;transition:.25s;margin-top:6px}
+.btn:hover{background:#2589bf}
+
+/* FOOTER */
+footer{padding:60px 24px 40px;border-top:1px solid var(--line);background:var(--bg)}
+.foot{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.foot-logo img{height:64px}
+.foot-social{display:flex;gap:24px}
+.foot-social a{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);transition:.2s}
+.foot-social a:hover{color:var(--accent-soft)}
+.foot-copy{font-size:12px;color:var(--ink-faint);letter-spacing:.04em}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .9s ease,transform .9s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* SPONSORS */
+.sponsors-sec{background:var(--bg);border-top:1px solid var(--line);text-align:center}
+.logo-wall{display:flex;justify-content:center;align-items:center;gap:80px;margin-top:56px;flex-wrap:wrap}
+.logo-item{color:var(--ink-soft);opacity:.7;transition:opacity .4s,transform .4s,color .4s;cursor:default}
+.logo-item img{height:auto;width:auto;filter:none}
+.logo-item img[alt="Duotone"]{height:38px}
+.logo-item img[alt="ION"]{height:52px}
+.logo-item:hover{opacity:1;color:var(--ink);transform:translateY(-4px)}
+
+/* === ANIMATIONS === */
+/* hero entrance */
+@keyframes heroUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+.hero-logo{animation:heroUp 1.1s cubic-bezier(.2,.7,.2,1) both}
+.hero-sub{animation:heroUp 1.1s cubic-bezier(.2,.7,.2,1) .25s both}
+.hero-tags{animation:heroUp 1.1s cubic-bezier(.2,.7,.2,1) .45s both}
+/* slow zoom on hero image */
+@keyframes slowZoom{from{transform:scale(1.08)}to{transform:scale(1)}}
+.hero-bg img{animation:slowZoom 6s ease-out both}
+/* tag hover */
+.tag{transition:border-color .3s,color .3s,transform .3s}
+.tag:hover{border-color:var(--accent);color:var(--ink);transform:translateY(-2px)}
+/* nav links underline grow */
+.nav-links a[href^="#"]{position:relative}
+.nav-links a[href^="#"]::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--accent);transition:width .3s}
+.nav-links a[href^="#"]:hover::after{width:100%}
+/* section titles: subtle char reveal via clip */
+@keyframes lineGrow{from{width:0}to{width:80px}}
+/* stat count pop */
+.stat .n{transition:transform .5s}
+.stat.in .n{animation:statPop .7s cubic-bezier(.2,.8,.2,1) both}
+@keyframes statPop{0%{opacity:0;transform:translateY(20px) scale(.9)}100%{opacity:1;transform:none}}
+/* palmares rows stagger handled by reveal + accent slide */
+.pal-row{position:relative}
+.pal-row::before{content:"";position:absolute;left:0;bottom:-1px;width:0;height:1px;background:var(--accent);transition:width .5s}
+.pal-row:hover::before{width:100%}
+/* btn shine */
+.btn{position:relative;overflow:hidden}
+.btn::after{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.25),transparent);transform:skewX(-20deg);transition:left .6s}
+.btn:hover::after{left:140%}
+/* scroll progress bar */
+#progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--accent);z-index:200;transition:width .1s}
+/* gallery fade-scale on reveal */
+.gal-grid figure{opacity:0;transform:scale(.96);transition:opacity .8s ease,transform .8s ease}
+.gal-grid figure.in{opacity:1;transform:none}
+/* respect reduced motion */
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ===== MORE ANIMATIONS (elegant) ===== */
+/* custom cursor */
+@media(hover:hover) and (pointer:fine){
+  *{cursor:none}
+  .cursor-dot{position:fixed;top:0;left:0;width:7px;height:7px;border-radius:50%;background:var(--accent);z-index:9999;pointer-events:none;transform:translate(-50%,-50%);transition:width .25s,height .25s,background .25s}
+  .cursor-ring{position:fixed;top:0;left:0;width:34px;height:34px;border:1px solid rgba(255,255,255,.45);border-radius:50%;z-index:9999;pointer-events:none;transform:translate(-50%,-50%);transition:width .25s,height .25s,border-color .25s,background .25s}
+  .cursor-ring.hover{width:60px;height:60px;border-color:var(--accent);background:rgba(46,155,214,.08)}
+  .cursor-dot.hover{width:0;height:0}
+}
+/* word-by-word title reveal */
+.title .w{display:inline-block;opacity:0;transform:translateY(28px) rotate(2deg);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1)}
+.title.in .w{opacity:1;transform:none}
+/* eyebrow line slide-in */
+.eyebrow{position:relative;padding-left:0;transition:padding-left .6s}
+.eyebrow.in{padding-left:46px}
+.eyebrow::before{content:"";position:absolute;left:0;top:50%;width:0;height:1px;background:var(--accent);transition:width .6s .1s}
+.eyebrow.in::before{width:34px}
+/* parallax layers */
+.hero-bg img{will-change:transform}
+.athlete-media img,.about-photo img{will-change:transform}
+/* floating drift for media */
+@keyframes drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.float{animation:drift 7s ease-in-out infinite}
+/* hero grain overlay */
+.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+/* tag pulse on load */
+.tag{opacity:0;animation:tagIn .6s ease forwards}
+.hero-tags .tag:nth-child(1){animation-delay:.5s}
+.hero-tags .tag:nth-child(2){animation-delay:.62s}
+.hero-tags .tag:nth-child(3){animation-delay:.74s}
+@keyframes tagIn{to{opacity:1}}
+/* magnetic buttons handled in JS via transform */
+.btn,.logo-item,.nav-logo{will-change:transform}
+/* scroll cue bounce already; add gallery hover lift */
+.gal-grid figure{transition:opacity .8s ease,transform .8s ease,box-shadow .5s}
+.gal-grid figure.in:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 20px 50px rgba(0,0,0,.5);z-index:2}
+/* athlete media reveal: fade (safe) */
+.athlete-media{opacity:1}
+/* section divider glow line */
+.athlete,.sponsors-sec,.work{position:relative}
+.athlete::before,.work::before{content:"";position:absolute;top:-1px;left:50%;transform:translateX(-50%);width:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);transition:width 1.2s}
+.athlete.seen::before,.work.seen::before{width:60%}
+/* logo wall stagger float */
+.logo-item:nth-child(2){animation-delay:.5s}
+
+/* ===== EXTRA MOTION SET 2 ===== */
+/* 3D tilt on media */
+.athlete-media,.about-photo{transform-style:preserve-3d;perspective:1000px;transition:transform .3s ease}
+/* aurora gradient behind hero text */
+@keyframes aurora{0%{transform:translate(-10%,-10%) rotate(0deg)}50%{transform:translate(10%,10%) rotate(180deg)}100%{transform:translate(-10%,-10%) rotate(360deg)}}
+.hero-inner::before{content:"";position:absolute;width:600px;height:600px;left:-150px;top:-200px;z-index:-1;background:radial-gradient(circle,rgba(46,155,214,.16),transparent 65%);filter:blur(40px);animation:aurora 22s linear infinite;pointer-events:none}
+/* palmares year slide on reveal */
+.pal-row .yr{display:inline-block;transition:transform .6s cubic-bezier(.2,.8,.2,1),opacity .6s}
+.pal-row.reveal .yr{transform:translateX(-16px);opacity:0}
+.pal-row.reveal.in .yr{transform:none;opacity:1}
+/* eyebrow accent dot pulse */
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(46,155,214,.5)}50%{box-shadow:0 0 0 6px rgba(46,155,214,0)}}
+/* sponsor logos gentle float continuous */
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.logo-item img{animation:floatY 5s ease-in-out infinite}
+.logo-item:nth-child(2) img{animation-delay:1.2s}
+/* footer rise */
+footer .foot>*{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s}
+footer.in .foot>*{opacity:1;transform:none}
+footer.in .foot>*:nth-child(2){transition-delay:.12s}
+footer.in .foot>*:nth-child(3){transition-delay:.24s}
+/* stat number glow on hover */
+.stat .n{transition:transform .5s,text-shadow .4s}
+.stat:hover .n{text-shadow:0 0 24px rgba(46,155,214,.6);transform:translateY(-2px)}
+/* section title underline sweep */
+h2.title{position:relative}
+/* nav active link dot */
+.nav-links a.active{color:var(--ink)}
+/* image hover saturate */
+.gal-grid img{filter:saturate(.85)}
+.gal-grid figure:hover img{filter:saturate(1.1)}
+/* link arrow on handle */
+.handle{transition:gap .3s,color .3s}
+.handle:hover{gap:14px}
+/* form field focus lift */
+input,textarea{transition:border-color .2s,transform .2s,box-shadow .2s}
+input:focus,textarea:focus{transform:translateY(-2px);box-shadow:0 6px 20px rgba(46,155,214,.12)}
+
+/* ===== MOTION SET 3 — rich ===== */
+/* animated gradient mesh background on body */
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:
+  radial-gradient(circle at 20% 20%,rgba(46,155,214,.10),transparent 40%),
+  radial-gradient(circle at 80% 60%,rgba(46,155,214,.07),transparent 45%),
+  radial-gradient(circle at 50% 90%,rgba(107,189,230,.06),transparent 40%);
+  background-size:200% 200%;animation:meshMove 18s ease-in-out infinite}
+@keyframes meshMove{0%,100%{background-position:0% 0%}50%{background-position:100% 100%}}
+/* floating wind particles */
+#particles{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.particle{position:absolute;background:rgba(255,255,255,.35);border-radius:50%;animation:rise linear infinite}
+@keyframes rise{0%{transform:translateY(110vh) translateX(0);opacity:0}10%{opacity:.6}90%{opacity:.6}100%{transform:translateY(-10vh) translateX(40px);opacity:0}}
+/* hero logo subtle continuous breathe */
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.015)}}
+.hero-logo{animation:heroUp 1.1s cubic-bezier(.2,.7,.2,1) both, breathe 6s ease-in-out 1.2s infinite}
+/* big section titles slide with mask line */
+h2.title::after{content:"";position:absolute;left:0;bottom:-12px;width:0;height:2px;background:var(--accent);transition:width 1s .3s cubic-bezier(.2,.8,.2,1)}
+h2.title.in::after{width:64px}
+/* eyebrow letters fade up */
+/* athlete bio fade slide */
+.bio{opacity:0;transform:translateY(20px);transition:opacity .9s .2s,transform .9s .2s}
+.athlete.seen .bio,.about.seen .bio{opacity:1;transform:none}
+/* stat numbers rotate-in */
+/* tag float idle */
+.hero-tags .tag{animation:tagIn .6s ease forwards, floatY 4s ease-in-out infinite}
+.hero-tags .tag:nth-child(1){animation-delay:.5s,0s}
+.hero-tags .tag:nth-child(2){animation-delay:.62s,.5s}
+.hero-tags .tag:nth-child(3){animation-delay:.74s,1s}
+/* scroll cue stronger */
+.scroll-cue{animation:floatY 2.4s ease-in-out infinite}
+/* gallery items alternate entrance direction */
+.gal-grid figure:nth-child(odd){transform:translateY(40px) scale(.96)}
+.gal-grid figure:nth-child(even){transform:translateY(-40px) scale(.96)}
+.gal-grid figure.in{transform:none!important}
+/* logo wall hover ripple */
+.logo-item{position:relative}
+.logo-item::after{content:"";position:absolute;inset:-20px;border:1px solid rgba(46,155,214,0);border-radius:50%;transition:border-color .4s,transform .4s;transform:scale(.6)}
+.logo-item:hover::after{border-color:rgba(46,155,214,.3);transform:scale(1)}
+/* nav link slide-down entrance */
+@keyframes navDrop{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:none}}
+.nav-links>a{animation:navDrop .6s ease both}
+.nav-links>a:nth-child(1){animation-delay:.1s}
+.nav-links>a:nth-child(2){animation-delay:.16s}
+.nav-links>a:nth-child(3){animation-delay:.22s}
+.nav-links>a:nth-child(4){animation-delay:.28s}
+.nav-links>a:nth-child(5){animation-delay:.34s}
+.nav-links>a:nth-child(6){animation-delay:.40s}
+/* athlete media glow border on hover */
+.athlete-media::after{content:"";position:absolute;inset:0;border:2px solid rgba(46,155,214,0);transition:border-color .5s;pointer-events:none;border-radius:4px}
+.athlete-media:hover::after{border-color:rgba(46,155,214,.4)}
+/* projects card tilt + glow */
+.proj-card{transition:transform .4s,box-shadow .4s,border-color .4s}
+.proj-card:hover{transform:translateY(-6px);box-shadow:0 30px 60px rgba(0,0,0,.4);border-color:rgba(46,155,214,.3)}
+.proj-icon{transition:transform .5s,background .4s}
+.proj-card:hover .proj-icon{transform:rotate(360deg);background:rgba(46,155,214,.12)}
+/* text gradient shimmer on hero sub */
+
+@media(max-width:860px){
+  .logo-wall{gap:48px}
+  section{padding:80px 22px}
+  .nav-links{display:none}
+  .burger{display:block}
+  .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:rgba(11,13,15,.97);padding:24px;gap:20px;border-bottom:1px solid var(--line)}
+  .about-grid,.athlete-grid,.athlete.rev .athlete-grid,.work-grid{grid-template-columns:1fr;gap:40px}
+  .athlete.rev .athlete-media{order:0}
+  .gal-grid{grid-template-columns:repeat(2,1fr)}
+  .proj-card{grid-template-columns:1fr;padding:32px;gap:24px}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div id="particles"></div>
+<div class="cursor-ring" id="cRing"></div>
+<div class="cursor-dot" id="cDot"></div>
+
+<header id="hdr">
+  <nav class="nav">
+    <a class="nav-logo" href="#top"><img src="assets/logo/Mika_Sofi_logo_white.svg" alt="Mika & Sofi"></a>
+    <div class="nav-links" id="navlinks">
+      <a href="#about" data-i="nav_about">About</a>
+      <a href="#mika">Mika</a>
+      <a href="#sofi">Sofi</a>
+      <a href="#gallery" data-i="nav_gallery">Gallery</a>
+      <a href="#projects" data-i="nav_projects">Projects</a>
+      <a href="#sponsors" data-i="nav_sponsors">Sponsors</a>
+      <a href="#work" data-i="nav_work">Work with us</a>
+      <div class="lang">
+        <button data-lang="en" class="on">EN</button>
+        <button data-lang="it">IT</button>
+        <button data-lang="pt">PT</button>
+      </div>
+    </div>
+    <button class="burger" id="burger">≡</button>
+  </nav>
+</header>
+
+<a id="top"></a>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"><img src="assets/img/hero-mika-sofi.jpg" alt="Mika & Sofi"></div>
+  <div class="hero-inner">
+    <img class="hero-logo" src="assets/logo/Mika_Sofi_logo_white.svg" alt="Mika & Sofi">
+    <p class="hero-sub" data-i="hero_sub">Two professional kitesurfers. One story. Riding, training and living between Tarifa, Brazil and the world's best spots.</p>
+    <div class="hero-tags">
+      <span class="tag" data-i="tag1">8x World Champion</span>
+      <span class="tag" data-i="tag2">Duotone · ION</span>
+      <span class="tag" data-i="tag3">Big Air · Freestyle</span>
+    </div>
+  </div>
+  <div class="scroll-cue" data-i="scroll">Scroll<span></span></div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="reveal">
+      <div class="eyebrow" data-i="about_eyebrow">About us</div>
+      <h2 class="title" data-i="about_title">More than a team.<br>A partnership.</h2>
+      <p class="lead" data-i="about_p">Mika &amp; Sofi are two professional kitesurfers and a couple, sharing the same passion at the highest level of the sport. Together they bring world-class performance, an authentic story and a strong connection with sea, wind and community. One plus one is far more than two.</p>
+      <div class="stat-row">
+        <div class="stat reveal"><div class="n">8×</div><div class="l" data-i="stat1">World Titles</div></div>
+        <div class="stat reveal"><div class="n">2</div><div class="l" data-i="stat2">Pro Athletes</div></div>
+        <div class="stat reveal"><div class="n">74K+</div><div class="l" data-i="stat3">Community</div></div>
+      </div>
+    </div>
+    <div class="about-photo reveal"><img src="assets/img/about-partnership.jpg" alt="Mika & Sofi"></div>
+  </div>
+</section>
+
+<!-- MIKA -->
+<section class="athlete" id="mika">
+  <div class="wrap athlete-grid">
+    <div class="reveal">
+      <div class="flag">🇧🇷 🇺🇸 <span data-i="mika_nat">Brazil / USA</span></div>
+      <div class="eyebrow">Mikaili Sol</div>
+      <a class="handle" href="https://instagram.com/mikaili_sol" target="_blank" rel="noopener">@mikaili_sol · 59K</a>
+      <h2 class="title">Mika</h2>
+      <p class="bio" data-i="mika_bio">One of the most successful kitesurfers of all time. An 8-time World Champion across Freestyle and Big Air, riding at the top level since she was thirteen. Born on the coast of Ceará, Brazil, Mika combines raw talent with relentless daily training, and is known for pushing the limits of women's kitesurfing.</p>
+      <div class="palmares">
+        <div class="pal-row reveal"><span class="yr">2025</span><span class="ev" data-i="m_2025">GKA Big Air World Champion</span><span class="pl">1st</span></div>
+        <div class="pal-row reveal"><span class="yr">2023</span><span class="ev" data-i="m_2023">GKA Big Air World Champion</span><span class="pl">1st</span></div>
+        <div class="pal-row reveal"><span class="yr">2022</span><span class="ev" data-i="m_2022b">GKA Big Air World Champion</span><span class="pl">1st</span></div>
+        <div class="pal-row reveal"><span class="yr">2022</span><span class="ev" data-i="m_2022">GKA Freestyle World Champion</span><span class="pl">1st</span></div>
+        <div class="pal-row reveal"><span class="yr">2021</span><span class="ev" data-i="m_2021">GKA Freestyle World Champion</span><span class="pl">1st</span></div>
+        <div class="pal-row reveal"><span class="yr">2019</span><span class="ev" data-i="m_2019">GKA Freestyle World Champion</span><span class="pl">1st</span></div>
+        <div class="pal-row reveal"><span class="yr">2018</span><span class="ev" data-i="m_2018w">WKL Freestyle World Champion</span><span class="pl">1st</span></div>
+        <div class="pal-row reveal"><span class="yr">2018</span><span class="ev" data-i="m_2018">GKA Air Games World Champion</span><span class="pl">1st</span></div>
+      </div>
+    </div>
+    <div class="athlete-media reveal"><img src="assets/img/mika-portrait.jpg" alt="Mikaili Sol"></div>
+  </div>
+</section>
+
+<!-- SOFI -->
+<section class="athlete rev" id="sofi">
+  <div class="wrap athlete-grid">
+    <div class="reveal">
+      <div class="flag">🇮🇹 <span data-i="sofi_nat">Italy</span></div>
+      <div class="eyebrow">Sofia Monti</div>
+      <a class="handle" href="https://instagram.com/sofiamontiiii" target="_blank" rel="noopener">@sofiamontiiii · 15K</a>
+      <h2 class="title">Sofi</h2>
+      <p class="bio" data-i="sofi_bio">Professional kitesurfer from Italy and Duotone team rider, competing on the GKA World Tour across Big Air, Freestyle and Strapless. Fast-rising, versatile and fearless, Sofi trains in Tarifa and competes at the highest level of women's kitesurfing around the world.</p>
+      <div class="palmares">
+        <div class="pal-row reveal"><span class="yr">2025</span><span class="ev" data-i="s_2025">GKA Sylt</span><span class="pl">3rd</span></div>
+        <div class="pal-row reveal"><span class="yr">2023</span><span class="ev" data-i="s_2023b">Strapless Junior World Champion</span><span class="pl">1st</span></div>
+        <div class="pal-row reveal"><span class="yr">2023</span><span class="ev" data-i="s_2023">GKA Sylt</span><span class="pl">4th</span></div>
+        <div class="pal-row reveal"><span class="yr">2022</span><span class="ev" data-i="s_2022">Vice Strapless Junior World Champion</span><span class="pl">2nd</span></div>
+      </div>
+    </div>
+    <div class="athlete-media reveal"><img src="assets/img/sofi-portrait.jpg" alt="Sofia Monti"></div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="eyebrow reveal" data-i="gal_eyebrow">Moments</div>
+    <h2 class="title reveal" data-i="gal_title">Gallery</h2>
+    <div class="gal-grid">
+      <figure class="reveal"><img src="assets/img/gal-01.jpg" alt="" loading="lazy"></figure>
+      <figure class="reveal"><img src="assets/img/gal-02.jpg" alt="" loading="lazy"></figure>
+      <figure class="reveal"><img src="assets/img/gal-03.jpg" alt="" loading="lazy"></figure>
+      <figure class="reveal"><img src="assets/img/gal-04.jpg" alt="" loading="lazy"></figure>
+      <figure class="reveal"><img src="assets/img/gal-05.jpg" alt="" loading="lazy"></figure>
+      <figure class="reveal"><img src="assets/img/gal-06.jpg" alt="" loading="lazy"></figure>
+      <figure class="reveal"><img src="assets/img/gal-07.jpg" alt="" loading="lazy"></figure>
+      <figure class="reveal"><img src="assets/img/gal-08.jpg" alt="" loading="lazy"></figure>
+      <figure class="reveal"><img src="assets/img/gal-09.jpg" alt="" loading="lazy"></figure>
+      <figure class="reveal"><img src="assets/img/gal-10.jpg" alt="" loading="lazy"></figure>
+      <figure class="reveal"><img src="assets/img/gal-11.jpg" alt="" loading="lazy"></figure>
+      <figure class="reveal"><img src="assets/img/gal-12.jpg" alt="" loading="lazy"></figure>
+      <figure class="reveal"><img src="assets/img/gal-13.jpg" alt="" loading="lazy"></figure>
+      <figure class="reveal"><img src="assets/img/gal-14.jpg" alt="" loading="lazy"></figure>
+      <figure class="reveal"><img src="assets/img/gal-15.jpg" alt="" loading="lazy"></figure>
+      <figure class="reveal"><img src="assets/img/gal-16.jpg" alt="" loading="lazy"></figure>
+      <figure class="reveal"><img src="assets/img/gal-17.jpg" alt="" loading="lazy"></figure>
+      <figure class="reveal"><img src="assets/img/gal-18.jpg" alt="" loading="lazy"></figure>
+      <figure class="reveal"><img src="assets/img/gal-19.jpg" alt="" loading="lazy"></figure>
+      <figure class="reveal"><img src="assets/img/gal-20.jpg" alt="" loading="lazy"></figure>
+      <figure class="reveal"><img src="assets/img/gal-21.jpg" alt="" loading="lazy"></figure>
+      <figure class="reveal"><img src="assets/img/gal-22.jpg" alt="" loading="lazy"></figure>
+      <figure class="reveal"><img src="assets/img/gal-23.jpg" alt="" loading="lazy"></figure>
+      <figure class="reveal"><img src="assets/img/gal-24.jpg" alt="" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <div class="eyebrow reveal" data-i="proj_eyebrow">Projects</div>
+    <h2 class="title reveal" data-i="proj_title">Beyond kitesurf</h2>
+    <div class="proj-card reveal">
+      <div class="proj-icon">P</div>
+      <div>
+        <h3 data-i="proj_padel_h">Padel</h3>
+        <p class="lead" data-i="proj_padel_p">Off the water, Mika &amp; Sofi share a passion for padel — training, playing and connecting with a wider sports community. A growing side project that opens new opportunities for content and partnerships.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPONSORS -->
+<section class="sponsors-sec" id="sponsors">
+  <div class="wrap">
+    <div class="eyebrow reveal" data-i="spons_eyebrow">Sponsors &amp; Partners</div>
+    <h2 class="title reveal" data-i="spons_title">Backed by the best</h2>
+    <div class="logo-wall">
+      <a class="logo-item reveal" href="https://www.duotonesports.com/" target="_blank" rel="noopener"><img src="assets/logo/duotone-white.png" alt="Duotone"></a>
+      <a class="logo-item reveal" href="https://www.ion-products.com/" target="_blank" rel="noopener"><img src="assets/logo/ion-white.png" alt="ION"></a>
+    </div>
+  </div>
+</section>
+
+<!-- WORK WITH US -->
+<section class="work" id="work">
+  <div class="wrap work-grid">
+    <div class="reveal">
+      <div class="eyebrow" data-i="work_eyebrow">Work with us</div>
+      <h2 class="title" data-i="work_title">Let's build<br>something real.</h2>
+      <p class="lead" data-i="work_p">We partner with brands that share our values: authentic storytelling, real performance and long-term vision. From content and travel to lifestyle and performance, we create partnerships that go beyond a single post.</p>
+    </div>
+    <div class="reveal">
+      <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <label data-i="f_name">Name</label>
+        <input type="text" name="name" required>
+        <label data-i="f_email">Email</label>
+        <input type="email" name="email" required>
+        <label data-i="f_msg">Message</label>
+        <textarea name="message" required></textarea>
+        <button class="btn" type="submit" data-i="f_send">Send message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot">
+    <a class="foot-logo" href="#top"><img src="assets/logo/Mika_Sofi_logo_white.svg" alt="Mika & Sofi"></a>
+    <div class="foot-social">
+      <a href="https://instagram.com/mikaili_sol" target="_blank" rel="noopener">Mika IG</a>
+      <a href="https://instagram.com/sofiamontiiii" target="_blank" rel="noopener">Sofi IG</a>
+    </div>
+    <div class="foot-copy">© <span id="yr"></span> Mika &amp; Sofi</div>
+  </div>
+</footer>
+
+<script>
+/* ---- i18n ---- */
+const _reduceMotion = matchMedia('(prefers-reduced-motion:reduce)').matches;
+function splitTitles(){
+  if(_reduceMotion) return;
+  document.querySelectorAll('h2.title').forEach(t=>{
+    if(t.querySelector('.w')) return;
+    const html=t.innerHTML;
+    const parts=html.split(/(<br\s*\/?>)/i);
+    t.innerHTML=parts.map(seg=>{
+      if(/<br/i.test(seg)) return seg;
+      return seg.split(' ').filter(Boolean).map((w,i)=>`<span class="w" style="transition-delay:${i*0.06}s">${w}</span>`).join(' ');
+    }).join('');
+    const r=t.getBoundingClientRect();
+    if(r.top<innerHeight && r.bottom>0) t.classList.add('in');
+  });
+}
+const I18N={
+  en:{nav_about:"About",nav_gallery:"Gallery",nav_projects:"Projects",nav_sponsors:"Sponsors",nav_work:"Work with us",
+    hero_sub:"Two professional kitesurfers. One story. Riding, training and living between Tarifa, Brazil and the world's best spots.",
+    tag1:"8x World Champion",tag2:"Duotone · ION",tag3:"Big Air · Freestyle",scroll:"Scroll",
+    about_eyebrow:"About us",about_title:"More than a team.<br>A partnership.",
+    about_p:"Mika & Sofi are two professional kitesurfers and a couple, sharing the same passion at the highest level of the sport. Together they bring world-class performance, an authentic story and a strong connection with sea, wind and community. One plus one is far more than two.",
+    stat1:"World Titles",stat2:"Pro Athletes",stat3:"Community",
+    mika_nat:"Brazil / USA",
+    mika_bio:"One of the most successful kitesurfers of all time. An 8-time World Champion across Freestyle and Big Air, riding at the top level since she was thirteen. Born on the coast of Ceará, Brazil, Mika combines raw talent with relentless daily training, and is known for pushing the limits of women's kitesurfing.",
+    m_2025:"GKA Big Air World Champion",m_2023:"GKA Big Air World Champion",m_2022b:"GKA Big Air World Champion",m_2022:"GKA Freestyle World Champion",m_2021:"GKA Freestyle World Champion",m_2019:"GKA Freestyle World Champion",m_2018w:"WKL Freestyle World Champion",m_2018:"GKA Air Games World Champion",
+    sofi_nat:"Italy",
+    sofi_bio:"Professional kitesurfer from Italy and Duotone team rider, competing on the GKA World Tour across Big Air, Freestyle and Strapless. Fast-rising, versatile and fearless, Sofi trains in Tarifa and competes at the highest level of women's kitesurfing around the world.",
+    s_2025:"GKA Sylt",s_2023b:"Strapless Junior World Champion",s_2023:"GKA Sylt",s_2022:"Vice Strapless Junior World Champion",
+    gal_eyebrow:"Moments",gal_title:"Gallery",spons_eyebrow:"Sponsors & Partners",spons_title:"Backed by the best",
+    proj_eyebrow:"Projects",proj_title:"Beyond kitesurf",proj_padel_h:"Padel",
+    proj_padel_p:"Off the water, Mika & Sofi share a passion for padel — training, playing and connecting with a wider sports community. A growing side project that opens new opportunities for content and partnerships.",
+    work_eyebrow:"Work with us",work_title:"Let's build<br>something real.",
+    work_p:"We partner with brands that share our values: authentic storytelling, real performance and long-term vision. From content and travel to lifestyle and performance, we create partnerships that go beyond a single post.",
+    f_name:"Name",f_email:"Email",f_msg:"Message",f_send:"Send message"},
+  it:{nav_about:"Chi siamo",nav_gallery:"Gallery",nav_projects:"Progetti",nav_sponsors:"Sponsor",nav_work:"Collabora",
+    hero_sub:"Due kitesurfer professioniste. Una storia sola. Tra Tarifa, il Brasile e i migliori spot del mondo.",
+    tag1:"8 volte Campionessa",tag2:"Duotone · ION",tag3:"Big Air · Freestyle",scroll:"Scorri",
+    about_eyebrow:"Chi siamo",about_title:"Più di un team.<br>Una storia insieme.",
+    about_p:"Mika & Sofi sono due kitesurfer professioniste e una coppia, unite dalla stessa passione ai massimi livelli dello sport. Insieme portano performance di livello mondiale, una storia autentica e un legame forte con mare, vento e community. Uno più uno fa molto più di due.",
+    stat1:"Titoli Mondiali",stat2:"Atlete Pro",stat3:"Community",
+    mika_nat:"Brasile / USA",
+    mika_bio:"Una delle kitesurfer più vincenti di sempre. 8 volte Campionessa del Mondo tra Freestyle e Big Air, ai vertici da quando aveva tredici anni. Nata sulla costa del Ceará, in Brasile, Mika unisce talento puro e allenamento quotidiano, ed è nota per spingere i limiti del kitesurf femminile.",
+    m_2025:"Campionessa Mondiale GKA Big Air",m_2023:"Campionessa Mondiale GKA Big Air",m_2022b:"Campionessa Mondiale GKA Big Air",m_2022:"Campionessa Mondiale GKA Freestyle",m_2021:"Campionessa Mondiale GKA Freestyle",m_2019:"Campionessa Mondiale GKA Freestyle",m_2018w:"Campionessa Mondiale WKL Freestyle",m_2018:"Campionessa Mondiale GKA Air Games",
+    sofi_nat:"Italia",
+    sofi_bio:"Kitesurfer professionista italiana e team rider Duotone, in gara sul GKA World Tour tra Big Air, Freestyle e Strapless. In rapida crescita, versatile e senza paura, Sofi si allena a Tarifa e compete ai massimi livelli del kitesurf femminile nel mondo.",
+    s_2025:"GKA Sylt",s_2023b:"Campionessa Mondiale Junior Strapless",s_2023:"GKA Sylt",s_2022:"Vice Campionessa Mondiale Junior Strapless",
+    gal_eyebrow:"Momenti",gal_title:"Gallery",spons_eyebrow:"Sponsor & Partner",spons_title:"Sostenute dai migliori",
+    proj_eyebrow:"Progetti",proj_title:"Oltre il kitesurf",proj_padel_h:"Padel",
+    proj_padel_p:"Fuori dall'acqua, Mika & Sofi condividono la passione per il padel: allenamenti, partite e connessione con una community sportiva più ampia. Un progetto in crescita che apre nuove opportunità per contenuti e partnership.",
+    work_eyebrow:"Collabora con noi",work_title:"Costruiamo<br>qualcosa di vero.",
+    work_p:"Collaboriamo con brand che condividono i nostri valori: storytelling autentico, performance reali e visione di lungo periodo. Dal contenuto al travel, dal lifestyle alla performance, creiamo partnership che vanno oltre il singolo post.",
+    f_name:"Nome",f_email:"Email",f_msg:"Messaggio",f_send:"Invia messaggio"},
+  pt:{nav_about:"Sobre",nav_gallery:"Gallery",nav_projects:"Projetos",nav_sponsors:"Patrocinadores",nav_work:"Trabalhe conosco",
+    hero_sub:"Duas kitesurfistas profissionais. Uma história. Vivendo e treinando entre Tarifa, o Brasil e os melhores spots do mundo.",
+    tag1:"8x Campeã Mundial",tag2:"Duotone · ION",tag3:"Big Air · Freestyle",scroll:"Rolar",
+    about_eyebrow:"Sobre nós",about_title:"Mais que um time.<br>Uma parceria.",
+    about_p:"Mika & Sofi são duas kitesurfistas profissionais e um casal, unidas pela mesma paixão no mais alto nível do esporte. Juntas trazem performance de nível mundial, uma história autêntica e uma forte conexão com o mar, o vento e a comunidade. Um mais um é muito mais que dois.",
+    stat1:"Títulos Mundiais",stat2:"Atletas Pro",stat3:"Comunidade",
+    mika_nat:"Brasil / EUA",
+    mika_bio:"Uma das kitesurfistas mais vitoriosas de todos os tempos. 8 vezes Campeã Mundial em Freestyle e Big Air, no topo desde os treze anos. Nascida no litoral do Ceará, no Brasil, Mika une talento puro a treino diário e é conhecida por levar o kitesurf feminino ao limite.",
+    m_2025:"Campeã Mundial GKA Big Air",m_2023:"Campeã Mundial GKA Big Air",m_2022b:"Campeã Mundial GKA Big Air",m_2022:"Campeã Mundial GKA Freestyle",m_2021:"Campeã Mundial GKA Freestyle",m_2019:"Campeã Mundial GKA Freestyle",m_2018w:"Campeã Mundial WKL Freestyle",m_2018:"Campeã Mundial GKA Air Games",
+    sofi_nat:"Itália",
+    sofi_bio:"Kitesurfista profissional da Itália e team rider Duotone, competindo no GKA World Tour em Big Air, Freestyle e Strapless. Em ascensão, versátil e destemida, Sofi treina em Tarifa e compete no mais alto nível do kitesurf feminino pelo mundo.",
+    s_2025:"GKA Sylt",s_2023b:"Campionessa Mondiale Junior Strapless",s_2023:"GKA Sylt",s_2022:"Vice Campionessa Mondiale Junior Strapless",
+    gal_eyebrow:"Momentos",gal_title:"Gallery",spons_eyebrow:"Patrocinadores & Parceiros",spons_title:"Apoiadas pelas melhores",
+    proj_eyebrow:"Projetos",proj_title:"Além do kitesurf",proj_padel_h:"Padel",
+    proj_padel_p:"Fora da água, Mika & Sofi compartilham a paixão pelo padel — treinando, jogando e conectando-se com uma comunidade esportiva mais ampla. Um projeto em crescimento que abre novas oportunidades de conteúdo e parcerias.",
+    work_eyebrow:"Trabalhe conosco",work_title:"Vamos construir<br>algo real.",
+    work_p:"Fazemos parceria com marcas que compartilham nossos valores: storytelling autêntico, performance real e visão de longo prazo. De conteúdo e viagem a lifestyle e performance, criamos parcerias que vão além de um único post.",
+    f_name:"Nome",f_email:"Email",f_msg:"Mensagem",f_send:"Enviar mensagem"}
+};
+function setLang(l){
+  document.documentElement.lang=l;
+  document.querySelectorAll('[data-i]').forEach(el=>{
+    const k=el.getAttribute('data-i'); if(I18N[l][k]!==undefined) el.innerHTML=I18N[l][k];
+  });
+  document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.lang===l));
+  try{localStorage.setItem('lang',l)}catch(e){}
+  if(typeof splitTitles==='function') splitTitles();
+}
+document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+let saved='en'; try{saved=localStorage.getItem('lang')||'en'}catch(e){}
+setLang(saved);
+
+/* ---- nav scroll ---- */
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40));
+document.getElementById('burger').addEventListener('click',()=>document.getElementById('navlinks').classList.toggle('open'));
+document.querySelectorAll('#navlinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navlinks').classList.remove('open')));
+
+/* ---- reveal ---- */
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4*0.08)+'s';io.observe(el)});
+
+/* ---- gallery reveal (separate, scale effect) ---- */
+const galIo=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');galIo.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.gal-grid figure').forEach((el,i)=>{el.style.transitionDelay=(i*0.07)+'s';galIo.observe(el)});
+
+/* ---- stat count-up ---- */
+const statIo=new IntersectionObserver((es)=>es.forEach(e=>{
+  if(!e.isIntersecting) return;
+  e.target.classList.add('in');
+  const el=e.target.querySelector('.n');
+  if(el && !el.dataset.done){
+    el.dataset.done="1";
+    const raw=el.textContent.trim();
+    const m=raw.match(/(\d+)/);
+    if(m){
+      const target=parseInt(m[1]); const suffix=raw.replace(m[1],'');
+      let cur=0; const step=Math.max(1,Math.ceil(target/30));
+      const t=setInterval(()=>{cur+=step; if(cur>=target){cur=target;clearInterval(t)} el.textContent=cur+suffix;},28);
+    }
+  }
+  statIo.unobserve(e.target);
+}),{threshold:.5});
+document.querySelectorAll('.stat').forEach(s=>statIo.observe(s));
+
+/* ---- scroll progress bar ---- */
+const prog=document.getElementById('progress');
+addEventListener('scroll',()=>{
+  const h=document.documentElement.scrollHeight-innerHeight;
+  prog.style.width=(scrollY/h*100)+'%';
+});
+
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+/* ===== ELEGANT MOTION LAYER ===== */
+const reduce = _reduceMotion;
+if(!reduce){
+
+/* word reveal + eyebrow + divider via observer */
+const animIo=new IntersectionObserver((es)=>es.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add('in'); animIo.unobserve(e.target);}
+}),{threshold:.2});
+document.querySelectorAll('h2.title, .eyebrow').forEach(el=>animIo.observe(el));
+
+const divIo=new IntersectionObserver((es)=>es.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add('seen'); divIo.unobserve(e.target);}
+}),{threshold:.1});
+document.querySelectorAll('.athlete,.work').forEach(el=>divIo.observe(el));
+
+/* athlete media clip reveal */
+const mediaIo=new IntersectionObserver((es)=>es.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add('in'); mediaIo.unobserve(e.target);}
+}),{threshold:.3});
+document.querySelectorAll('.athlete-media').forEach(el=>mediaIo.observe(el));
+
+/* custom cursor */
+const dot=document.getElementById('cDot'), ring=document.getElementById('cRing');
+let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
+addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
+(function loop(){rx+=(mx-rx)*.18;ry+=(my-ry)*.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop);})();
+document.querySelectorAll('a,button,.logo-item,.gal-grid figure,input,textarea').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{ring.classList.add('hover');dot.classList.add('hover');});
+  el.addEventListener('mouseleave',()=>{ring.classList.remove('hover');dot.classList.remove('hover');});
+});
+
+/* parallax on hero + media */
+const heroImg=document.querySelector('.hero-bg img');
+const media=[...document.querySelectorAll('.athlete-media img,.about-photo img')];
+addEventListener('scroll',()=>{
+  const y=scrollY;
+  if(heroImg && y<innerHeight) heroImg.style.transform=`translateY(${y*0.25}px) scale(1.05)`;
+  media.forEach(m=>{
+    const r=m.getBoundingClientRect();
+    const off=(r.top+r.height/2-innerHeight/2)/innerHeight;
+    m.style.transform=`translateY(${off*-22}px)`;
+  });
+},{passive:true});
+
+/* magnetic buttons */
+document.querySelectorAll('.btn, .logo-item').forEach(el=>{
+  el.addEventListener('mousemove',e=>{
+    const r=el.getBoundingClientRect();
+    const x=e.clientX-r.left-r.width/2, y=e.clientY-r.top-r.height/2;
+    el.style.transform=`translate(${x*0.25}px,${y*0.35}px)`;
+  });
+  el.addEventListener('mouseleave',()=>{el.style.transform='';});
+});
+
+/* 3D tilt on media frames */
+document.querySelectorAll('.athlete-media,.about-photo').forEach(el=>{
+  el.addEventListener('mousemove',e=>{
+    const r=el.getBoundingClientRect();
+    const px=(e.clientX-r.left)/r.width-0.5, py=(e.clientY-r.top)/r.height-0.5;
+    el.style.transform=`rotateY(${px*7}deg) rotateX(${-py*7}deg) scale(1.02)`;
+  });
+  el.addEventListener('mouseleave',()=>{el.style.transform='';});
+});
+
+/* footer reveal */
+const footIo=new IntersectionObserver((es)=>es.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add('in');footIo.unobserve(e.target);}
+}),{threshold:.3});
+const ft=document.querySelector('footer'); if(ft) footIo.observe(ft);
+
+/* nav active link on scroll */
+const navMap=[...document.querySelectorAll('#navlinks a[href^="#"]')];
+const secs=navMap.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+addEventListener('scroll',()=>{
+  let cur=null;
+  secs.forEach((s,i)=>{ if(s.getBoundingClientRect().top<innerHeight*0.4) cur=i; });
+  navMap.forEach((a,i)=>a.classList.toggle('active',i===cur));
+},{passive:true});
+
+/* wind particles */
+const pc=document.getElementById('particles');
+if(pc){
+  const N=window.innerWidth<760?14:28;
+  for(let i=0;i<N;i++){
+    const d=document.createElement('div'); d.className='particle';
+    const size=Math.random()*3+1;
+    d.style.width=d.style.height=size+'px';
+    d.style.left=Math.random()*100+'vw';
+    d.style.animationDuration=(Math.random()*18+12)+'s';
+    d.style.animationDelay=(-Math.random()*20)+'s';
+    pc.appendChild(d);
+  }
+}
+
+/* seen class on about (for bio) */
+const seenIo=new IntersectionObserver((es)=>es.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add('seen');seenIo.unobserve(e.target);}
+}),{threshold:.2});
+document.querySelectorAll('.about').forEach(el=>seenIo.observe(el));
+
+} /* end !reduce */
+</script>
+</body>
+</html>
