@@ -257,6 +257,9 @@ h2.title{position:relative}
 /* form field focus lift */
 input,textarea{transition:border-color .2s,transform .2s,box-shadow .2s}
 input:focus,textarea:focus{transform:translateY(-2px);box-shadow:0 6px 20px rgba(46,155,214,.12)}
+#formStatus{margin-top:14px;font-size:13px;letter-spacing:.06em;min-height:20px;transition:opacity .4s}
+#formStatus.ok{color:#4ade80}
+#formStatus.err{color:#f87171}
 
 /* ===== MOTION SET 3 — rich ===== */
 /* animated gradient mesh background on body */
@@ -512,6 +515,7 @@ h2.title.in::after{width:64px}
         <textarea name="message" required></textarea>
         <button class="btn" type="submit" data-i="f_send">Send message</button>
       </form>
+      <p id="formStatus"></p>
     </div>
   </div>
 </section>
@@ -562,7 +566,7 @@ const I18N={
     proj_padel_p:"Off the water, Mika & Sofi share a passion for padel — training, playing and connecting with a wider sports community. A growing side project that opens new opportunities for content and partnerships.",
     work_eyebrow:"Work with us",work_title:"Let's build<br>something real.",
     work_p:"We partner with brands that share our values: authentic storytelling, real performance and long-term vision. From content and travel to lifestyle and performance, we create partnerships that go beyond a single post.",
-    f_name:"Name",f_email:"Email",f_msg:"Message",f_send:"Send message"},
+    f_name:"Name",f_email:"Email",f_msg:"Message",f_send:"Send message",f_ok:"Message sent — we'll be in touch soon!",f_err:"Something went wrong. Please try again."},
   it:{nav_about:"Chi siamo",nav_gallery:"Gallery",nav_projects:"Progetti",nav_sponsors:"Sponsor",nav_work:"Collabora",
     hero_sub:"Due kitesurfer professioniste. Una storia sola. Tra Tarifa, il Brasile e i migliori spot del mondo.",
     tag1:"8 volte Campionessa",tag2:"Duotone · ION",tag3:"Big Air · Freestyle",scroll:"Scorri",
@@ -580,7 +584,7 @@ const I18N={
     proj_padel_p:"Fuori dall'acqua, Mika & Sofi condividono la passione per il padel: allenamenti, partite e connessione con una community sportiva più ampia. Un progetto in crescita che apre nuove opportunità per contenuti e partnership.",
     work_eyebrow:"Collabora con noi",work_title:"Costruiamo<br>qualcosa di vero.",
     work_p:"Collaboriamo con brand che condividono i nostri valori: storytelling autentico, performance reali e visione di lungo periodo. Dal contenuto al travel, dal lifestyle alla performance, creiamo partnership che vanno oltre il singolo post.",
-    f_name:"Nome",f_email:"Email",f_msg:"Messaggio",f_send:"Invia messaggio"},
+    f_name:"Nome",f_email:"Email",f_msg:"Messaggio",f_send:"Invia messaggio",f_ok:"Messaggio inviato — ti risponderemo presto!",f_err:"Qualcosa è andato storto. Riprova."},
   pt:{nav_about:"Sobre",nav_gallery:"Gallery",nav_projects:"Projetos",nav_sponsors:"Patrocinadores",nav_work:"Trabalhe conosco",
     hero_sub:"Duas kitesurfistas profissionais. Uma história. Vivendo e treinando entre Tarifa, o Brasil e os melhores spots do mundo.",
     tag1:"8x Campeã Mundial",tag2:"Duotone · ION",tag3:"Big Air · Freestyle",scroll:"Rolar",
@@ -598,7 +602,7 @@ const I18N={
     proj_padel_p:"Fora da água, Mika & Sofi compartilham a paixão pelo padel — treinando, jogando e conectando-se com uma comunidade esportiva mais ampla. Um projeto em crescimento que abre novas oportunidades de conteúdo e parcerias.",
     work_eyebrow:"Trabalhe conosco",work_title:"Vamos construir<br>algo real.",
     work_p:"Fazemos parceria com marcas que compartilham nossos valores: storytelling autêntico, performance real e visão de longo prazo. De conteúdo e viagem a lifestyle e performance, criamos parcerias que vão além de um único post.",
-    f_name:"Nome",f_email:"Email",f_msg:"Mensagem",f_send:"Enviar mensagem"}
+    f_name:"Nome",f_email:"Email",f_msg:"Mensagem",f_send:"Enviar mensagem",f_ok:"Mensagem enviada — entraremos em contato em breve!",f_err:"Algo deu errado. Tente novamente."}
 };
 function setLang(l){
   document.documentElement.lang=l;
@@ -612,6 +616,27 @@ function setLang(l){
 document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
 let saved='en'; try{saved=localStorage.getItem('lang')||'en'}catch(e){}
 setLang(saved);
+
+/* ---- contact form AJAX ---- */
+const cf=document.getElementById('contactForm');
+cf.addEventListener('submit',async e=>{
+  e.preventDefault();
+  const btn=cf.querySelector('button[type="submit"]');
+  const st=document.getElementById('formStatus');
+  btn.disabled=true; st.className=''; st.textContent='';
+  try{
+    const r=await fetch(cf.action,{method:'POST',body:new FormData(cf),headers:{Accept:'application/json'}});
+    if(r.ok){
+      const l=document.documentElement.lang||'en';
+      st.className='ok'; st.textContent=I18N[l]?.f_ok||'Message sent!';
+      cf.reset();
+    } else { throw new Error(); }
+  } catch{
+    const l=document.documentElement.lang||'en';
+    st.className='err'; st.textContent=I18N[l]?.f_err||'Something went wrong. Please try again.';
+  }
+  btn.disabled=false;
+});
 
 /* ---- nav scroll ---- */
 const hdr=document.getElementById('hdr');
