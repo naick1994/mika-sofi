@@ -126,6 +126,18 @@ textarea{resize:vertical;min-height:120px}
 .btn{background:var(--accent);color:#fff;border:none;border-radius:4px;padding:16px;font-family:var(--sans);font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;cursor:pointer;transition:.25s;margin-top:6px}
 .btn:hover{background:#2589bf}
 
+/* NEWSLETTER */
+.newsletter{background:var(--bg);border-top:1px solid var(--line);padding:80px 24px}
+.nl-inner{display:flex;align-items:center;justify-content:space-between;gap:48px;flex-wrap:wrap}
+.nl-inner>div:first-child{flex:1;min-width:200px}
+.nl-inner h2.title{margin-bottom:6px}
+.nl-form{display:flex;gap:10px;flex:1;max-width:440px;min-width:260px}
+.nl-form input[type="email"]{flex:1;background:var(--bg-soft);border:1px solid var(--line);border-radius:4px;padding:14px 16px;color:var(--ink);font-family:var(--sans);font-size:15px;font-weight:300;transition:border-color .2s}
+.nl-form input[type="email"]:focus{outline:none;border-color:var(--accent)}
+.nl-form input[type="email"]::placeholder{color:var(--ink-faint)}
+.nl-status{font-size:13px;letter-spacing:.06em;min-height:18px;margin-top:10px;transition:opacity .4s}
+.nl-status.ok{color:#4ade80}.nl-status.err{color:#f87171}
+
 /* FOOTER */
 footer{padding:60px 24px 40px;border-top:1px solid var(--line);background:var(--bg)}
 .foot{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
@@ -525,6 +537,24 @@ h2.title.in::after{width:64px}
   </div>
 </section>
 
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="wrap nl-inner">
+    <div class="reveal">
+      <div class="eyebrow" data-i="nl_eyebrow">Newsletter</div>
+      <h2 class="title" data-i="nl_title">Resta nel loop.</h2>
+    </div>
+    <div class="reveal">
+      <form class="nl-form" id="nlForm" action="https://formspree.io/f/xykagqaj" method="POST">
+        <input type="hidden" name="_subject" value="Newsletter signup">
+        <input type="email" name="email" placeholder="La tua email" data-i-ph="nl_placeholder" required>
+        <button class="btn" type="submit" data-i="nl_btn">Iscriviti</button>
+      </form>
+      <p class="nl-status" id="nlStatus"></p>
+    </div>
+  </div>
+</section>
+
 <!-- WORK WITH US -->
 <section class="work" id="work">
   <div class="wrap work-grid">
@@ -595,7 +625,8 @@ const I18N={
     proj_padel_p:"Off the water, Mika & Sofi share a passion for padel — training, playing and connecting with a wider sports community. A growing side project that opens new opportunities for content and partnerships.",
     work_eyebrow:"Work with us",work_title:"Let's build<br>something real.",
     work_p:"We partner with brands that share our values: authentic storytelling, real performance and long-term vision. From content and travel to lifestyle and performance, we create partnerships that go beyond a single post.",
-    f_name:"Name",f_email:"Email",f_msg:"Message",f_send:"Send message",f_ok:"Message sent — we'll be in touch soon!",f_err:"Something went wrong. Please try again."},
+    f_name:"Name",f_email:"Email",f_msg:"Message",f_send:"Send message",f_ok:"Message sent — we'll be in touch soon!",f_err:"Something went wrong. Please try again.",
+    nl_eyebrow:"Newsletter",nl_title:"Stay in the loop.",nl_placeholder:"Your email",nl_btn:"Subscribe",nl_ok:"You're in! Thanks for subscribing.",nl_err:"Something went wrong. Please try again."},
   it:{nav_about:"Chi siamo",nav_gallery:"Gallery",nav_projects:"Progetti",nav_sponsors:"Sponsor",nav_work:"Collabora",
     hero_sub:"Due kitesurfer professioniste. Una storia sola. Tra Tarifa, il Brasile e i migliori spot del mondo.",
     tag1:"9 volte Campionessa",tag2:"Duotone · ION",tag3:"Big Air · Freestyle",scroll:"Scorri",
@@ -613,7 +644,8 @@ const I18N={
     proj_padel_p:"Fuori dall'acqua, Mika & Sofi condividono la passione per il padel: allenamenti, partite e connessione con una community sportiva più ampia. Un progetto in crescita che apre nuove opportunità per contenuti e partnership.",
     work_eyebrow:"Collabora con noi",work_title:"Costruiamo<br>qualcosa di vero.",
     work_p:"Collaboriamo con brand che condividono i nostri valori: storytelling autentico, performance reali e visione di lungo periodo. Dal contenuto al travel, dal lifestyle alla performance, creiamo partnership che vanno oltre il singolo post.",
-    f_name:"Nome",f_email:"Email",f_msg:"Messaggio",f_send:"Invia messaggio",f_ok:"Messaggio inviato — ti risponderemo presto!",f_err:"Qualcosa è andato storto. Riprova."},
+    f_name:"Nome",f_email:"Email",f_msg:"Messaggio",f_send:"Invia messaggio",f_ok:"Messaggio inviato — ti risponderemo presto!",f_err:"Qualcosa è andato storto. Riprova.",
+    nl_eyebrow:"Newsletter",nl_title:"Resta nel loop.",nl_placeholder:"La tua email",nl_btn:"Iscriviti",nl_ok:"Fatto! Grazie per l'iscrizione.",nl_err:"Qualcosa è andato storto. Riprova."},
   pt:{nav_about:"Sobre",nav_gallery:"Gallery",nav_projects:"Projetos",nav_sponsors:"Patrocinadores",nav_work:"Trabalhe conosco",
     hero_sub:"Duas kitesurfistas profissionais. Uma história. Vivendo e treinando entre Tarifa, o Brasil e os melhores spots do mundo.",
     tag1:"9x Campeã Mundial",tag2:"Duotone · ION",tag3:"Big Air · Freestyle",scroll:"Rolar",
@@ -631,13 +663,17 @@ const I18N={
     proj_padel_p:"Fora da água, Mika & Sofi compartilham a paixão pelo padel — treinando, jogando e conectando-se com uma comunidade esportiva mais ampla. Um projeto em crescimento que abre novas oportunidades de conteúdo e parcerias.",
     work_eyebrow:"Trabalhe conosco",work_title:"Vamos construir<br>algo real.",
     work_p:"Fazemos parceria com marcas que compartilham nossos valores: storytelling autêntico, performance real e visão de longo prazo. De conteúdo e viagem a lifestyle e performance, criamos parcerias que vão além de um único post.",
-    f_name:"Nome",f_email:"Email",f_msg:"Mensagem",f_send:"Enviar mensagem",f_ok:"Mensagem enviada — entraremos em contato em breve!",f_err:"Algo deu errado. Tente novamente."}
+    f_name:"Nome",f_email:"Email",f_msg:"Mensagem",f_send:"Enviar mensagem",f_ok:"Mensagem enviada — entraremos em contato em breve!",f_err:"Algo deu errado. Tente novamente.",
+    nl_eyebrow:"Newsletter",nl_title:"Fique por dentro.",nl_placeholder:"Seu email",nl_btn:"Inscrever",nl_ok:"Pronto! Obrigada pela inscrição.",nl_err:"Algo deu errado. Tente novamente."}
 };
 const LANG_META={en:{flag:'🇬🇧',code:'EN'},it:{flag:'🇮🇹',code:'IT'},pt:{flag:'🇧🇷',code:'PT'}};
 function setLang(l){
   document.documentElement.lang=l;
   document.querySelectorAll('[data-i]').forEach(el=>{
     const k=el.getAttribute('data-i'); if(I18N[l][k]!==undefined) el.innerHTML=I18N[l][k];
+  });
+  document.querySelectorAll('[data-i-ph]').forEach(el=>{
+    const k=el.getAttribute('data-i-ph'); if(I18N[l][k]!==undefined) el.placeholder=I18N[l][k];
   });
   const m=LANG_META[l]||LANG_META.en;
   const flagEl=document.getElementById('langFlag'); if(flagEl) flagEl.textContent=m.flag;
@@ -656,6 +692,27 @@ if(langBtn){
 }
 let saved='en'; try{saved=localStorage.getItem('lang')||'en'}catch(e){}
 setLang(saved);
+
+/* ---- newsletter form AJAX ---- */
+const nlForm=document.getElementById('nlForm');
+if(nlForm) nlForm.addEventListener('submit',async e=>{
+  e.preventDefault();
+  const btn=nlForm.querySelector('button[type="submit"]');
+  const st=document.getElementById('nlStatus');
+  btn.disabled=true; st.className=''; st.textContent='';
+  try{
+    const r=await fetch(nlForm.action,{method:'POST',body:new FormData(nlForm),headers:{Accept:'application/json'}});
+    if(r.ok){
+      const l=document.documentElement.lang||'en';
+      st.className='ok'; st.textContent=I18N[l]?.nl_ok||'Done!';
+      nlForm.reset();
+    } else { throw new Error(); }
+  } catch{
+    const l=document.documentElement.lang||'en';
+    st.className='err'; st.textContent=I18N[l]?.nl_err||'Something went wrong.';
+  }
+  btn.disabled=false;
+});
 
 /* ---- contact form AJAX ---- */
 const cf=document.getElementById('contactForm');
