@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mika &amp; Sofi — Pro Kitesurf</title>
-<meta name="description" content="Mika &amp; Sofi — two professional kitesurfers, one story. Mikaili Sol, 8x World Champion, and Sofia Monti, Duotone pro rider.">
+<meta name="description" content="Mika &amp; Sofi — two professional kitesurfers, one story. Mikaili Sol, 9x World Champion, and Sofia Monti, Duotone pro rider.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Archivo:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -40,9 +40,19 @@ header.scrolled .nav-logo img{height:42px;opacity:1}
 .nav-links{display:flex;gap:32px;align-items:center}
 .nav-links a{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);transition:.25s;font-weight:400}
 .nav-links a:hover{color:var(--ink)}
-.lang{display:flex;gap:4px;align-items:center;border:1px solid var(--line);border-radius:999px;padding:4px}
-.lang button{background:none;border:none;color:var(--ink-faint);font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.06em;cursor:pointer;padding:4px 9px;border-radius:999px;transition:.2s}
-.lang button.on{background:var(--accent);color:#fff}
+.lang-select{position:relative}
+.lang-btn{display:flex;align-items:center;gap:6px;background:none;border:1px solid var(--line);border-radius:6px;padding:6px 10px;color:var(--ink-soft);font-family:var(--sans);font-size:13px;font-weight:500;cursor:pointer;transition:border-color .2s,color .2s;white-space:nowrap}
+.lang-btn:hover{border-color:var(--accent);color:var(--ink)}
+.lang-btn .flag{font-size:16px;line-height:1}
+.lang-btn .code{letter-spacing:.08em;font-size:11px;font-weight:600;text-transform:uppercase}
+.lang-arrow{font-size:9px;opacity:.5;transition:transform .2s}
+.lang-select.open .lang-arrow{transform:rotate(180deg)}
+.lang-drop{display:none;position:absolute;right:0;top:calc(100% + 8px);background:var(--bg-card);border:1px solid var(--line);border-radius:8px;overflow:hidden;min-width:148px;z-index:200;box-shadow:0 12px 32px rgba(0,0,0,.5)}
+.lang-select.open .lang-drop{display:block}
+.lang-drop li{display:flex;align-items:center;gap:10px;padding:10px 14px;font-size:13px;font-weight:400;color:var(--ink-soft);cursor:pointer;transition:background .15s,color .15s;list-style:none}
+.lang-drop li:hover{background:rgba(255,255,255,.05);color:var(--ink)}
+.lang-drop li.on{color:var(--accent-soft);background:rgba(46,155,214,.08)}
+.lang-drop li .flag{font-size:17px}
 .burger{display:none;background:none;border:none;color:var(--ink);font-size:26px;cursor:pointer;line-height:1}
 
 /* HERO */
@@ -349,10 +359,17 @@ h2.title.in::after{width:64px}
       <a href="#projects" data-i="nav_projects">Projects</a>
       <a href="#sponsors" data-i="nav_sponsors">Sponsors</a>
       <a href="#work" data-i="nav_work">Work with us</a>
-      <div class="lang">
-        <button data-lang="en" class="on">EN</button>
-        <button data-lang="it">IT</button>
-        <button data-lang="pt">PT</button>
+      <div class="lang-select" id="langSelect">
+        <button class="lang-btn" id="langBtn" aria-haspopup="listbox" aria-expanded="false">
+          <span class="flag" id="langFlag">🇬🇧</span>
+          <span class="code" id="langCode">EN</span>
+          <span class="lang-arrow">▾</span>
+        </button>
+        <ul class="lang-drop" id="langDrop" role="listbox">
+          <li data-lang="en" class="on" role="option"><span class="flag">🇬🇧</span> English</li>
+          <li data-lang="it" role="option"><span class="flag">🇮🇹</span> Italiano</li>
+          <li data-lang="pt" role="option"><span class="flag">🇧🇷</span> Português</li>
+        </ul>
       </div>
     </div>
     <button class="burger" id="burger">≡</button>
@@ -368,7 +385,7 @@ h2.title.in::after{width:64px}
     <img class="hero-logo" src="assets/logo/Mika_Sofi_logo_white.svg" alt="Mika & Sofi">
     <p class="hero-sub" data-i="hero_sub">Two professional kitesurfers. One story. Riding, training and living between Tarifa, Brazil and the world's best spots.</p>
     <div class="hero-tags">
-      <span class="tag" data-i="tag1">8x World Champion</span>
+      <span class="tag" data-i="tag1">9x World Champion</span>
       <span class="tag" data-i="tag2">Duotone · ION</span>
       <span class="tag" data-i="tag3">Big Air · Freestyle</span>
     </div>
@@ -384,7 +401,7 @@ h2.title.in::after{width:64px}
       <h2 class="title" data-i="about_title">More than a team.<br>A partnership.</h2>
       <p class="lead" data-i="about_p">Mika &amp; Sofi are two professional kitesurfers and a couple, sharing the same passion at the highest level of the sport. Together they bring world-class performance, an authentic story and a strong connection with sea, wind and community. One plus one is far more than two.</p>
       <div class="stat-row">
-        <div class="stat reveal"><div class="n">8×</div><div class="l" data-i="stat1">World Titles</div></div>
+        <div class="stat reveal"><div class="n">9×</div><div class="l" data-i="stat1">World Titles</div></div>
         <div class="stat reveal"><div class="n">2</div><div class="l" data-i="stat2">Pro Athletes</div></div>
         <div class="stat reveal"><div class="n">74K+</div><div class="l" data-i="stat3">Community</div></div>
       </div>
@@ -401,8 +418,9 @@ h2.title.in::after{width:64px}
       <div class="eyebrow">Mikaili Sol</div>
       <a class="handle" href="https://instagram.com/mikaili_sol" target="_blank" rel="noopener">@mikaili_sol · 59K</a>
       <h2 class="title">Mika</h2>
-      <p class="bio" data-i="mika_bio">One of the most successful kitesurfers of all time. An 8-time World Champion across Freestyle and Big Air, riding at the top level since she was thirteen. Born on the coast of Ceará, Brazil, Mika combines raw talent with relentless daily training, and is known for pushing the limits of women's kitesurfing.</p>
+      <p class="bio" data-i="mika_bio">One of the most successful kitesurfers of all time. A 9-time World Champion across Freestyle and Big Air, riding at the top level since she was thirteen. Born on the coast of Ceará, Brazil, Mika combines raw talent with relentless daily training, and is known for pushing the limits of women's kitesurfing.</p>
       <div class="palmares">
+        <div class="pal-row reveal"><span class="yr">2026</span><span class="ev" data-i="m_2026">GKA Big Air World Champion</span><span class="pl">1st</span></div>
         <div class="pal-row reveal"><span class="yr">2025</span><span class="ev" data-i="m_2025">GKA Big Air World Champion</span><span class="pl">1st</span></div>
         <div class="pal-row reveal"><span class="yr">2023</span><span class="ev" data-i="m_2023">GKA Big Air World Champion</span><span class="pl">1st</span></div>
         <div class="pal-row reveal"><span class="yr">2022</span><span class="ev" data-i="m_2022b">GKA Big Air World Champion</span><span class="pl">1st</span></div>
@@ -467,6 +485,14 @@ h2.title.in::after{width:64px}
       <figure class="reveal"><img src="assets/img/gal-22.jpg" alt="" loading="lazy"></figure>
       <figure class="reveal"><img src="assets/img/gal-23.jpg" alt="" loading="lazy"></figure>
       <figure class="reveal"><img src="assets/img/gal-24.jpg" alt="" loading="lazy"></figure>
+      <figure class="reveal tall"><img src="assets/img/gal-25.jpg" alt="GKA 2026 Mykonos podium" loading="lazy"></figure>
+      <figure class="reveal"><img src="assets/img/gal-26.jpg" alt="Mikaili Sol GKA 2026" loading="lazy"></figure>
+      <figure class="reveal"><img src="assets/img/gal-27.jpg" alt="Mikaili Sol GKA 2026" loading="lazy"></figure>
+      <figure class="reveal"><img src="assets/img/gal-28.jpg" alt="Mikaili Sol GKA 2026" loading="lazy"></figure>
+      <figure class="reveal"><img src="assets/img/gal-29.jpg" alt="Mikaili Sol GKA 2026" loading="lazy"></figure>
+      <figure class="reveal tall"><img src="assets/img/gal-30.jpg" alt="Mikaili Sol GKA 2026" loading="lazy"></figure>
+      <figure class="reveal"><img src="assets/img/gal-31.jpg" alt="Mikaili Sol GKA 2026 champion" loading="lazy"></figure>
+      <figure class="reveal"><img src="assets/img/gal-32.jpg" alt="Mikaili Sol GKA 2026 celebration" loading="lazy"></figure>
     </div>
   </div>
 </section>
@@ -553,13 +579,13 @@ function splitTitles(){
 const I18N={
   en:{nav_about:"About",nav_gallery:"Gallery",nav_projects:"Projects",nav_sponsors:"Sponsors",nav_work:"Work with us",
     hero_sub:"Two professional kitesurfers. One story. Riding, training and living between Tarifa, Brazil and the world's best spots.",
-    tag1:"8x World Champion",tag2:"Duotone · ION",tag3:"Big Air · Freestyle",scroll:"Scroll",
+    tag1:"9x World Champion",tag2:"Duotone · ION",tag3:"Big Air · Freestyle",scroll:"Scroll",
     about_eyebrow:"About us",about_title:"More than a team.<br>A partnership.",
     about_p:"Mika & Sofi are two professional kitesurfers and a couple, sharing the same passion at the highest level of the sport. Together they bring world-class performance, an authentic story and a strong connection with sea, wind and community. One plus one is far more than two.",
     stat1:"World Titles",stat2:"Pro Athletes",stat3:"Community",
     mika_nat:"Brazil / USA",
-    mika_bio:"One of the most successful kitesurfers of all time. An 8-time World Champion across Freestyle and Big Air, riding at the top level since she was thirteen. Born on the coast of Ceará, Brazil, Mika combines raw talent with relentless daily training, and is known for pushing the limits of women's kitesurfing.",
-    m_2025:"GKA Big Air World Champion",m_2023:"GKA Big Air World Champion",m_2022b:"GKA Big Air World Champion",m_2022:"GKA Freestyle World Champion",m_2021:"GKA Freestyle World Champion",m_2019:"GKA Freestyle World Champion",m_2018w:"WKL Freestyle World Champion",m_2018:"GKA Air Games World Champion",
+    mika_bio:"One of the most successful kitesurfers of all time. A 9-time World Champion across Freestyle and Big Air, riding at the top level since she was thirteen. Born on the coast of Ceará, Brazil, Mika combines raw talent with relentless daily training, and is known for pushing the limits of women's kitesurfing.",
+    m_2026:"GKA Big Air World Champion",m_2025:"GKA Big Air World Champion",m_2023:"GKA Big Air World Champion",m_2022b:"GKA Big Air World Champion",m_2022:"GKA Freestyle World Champion",m_2021:"GKA Freestyle World Champion",m_2019:"GKA Freestyle World Champion",m_2018w:"WKL Freestyle World Champion",m_2018:"GKA Air Games World Champion",
     sofi_nat:"Italy",
     sofi_bio:"Professional kitesurfer from Italy and Duotone team rider, competing on the GKA World Tour across Big Air, Freestyle and Strapless. Fast-rising, versatile and fearless, Sofi trains in Tarifa and competes at the highest level of women's kitesurfing around the world.",
     s_2025:"GKA Sylt",s_2023b:"Strapless Junior World Champion",s_2023:"GKA Sylt",s_2022:"Vice Strapless Junior World Champion",
@@ -571,13 +597,13 @@ const I18N={
     f_name:"Name",f_email:"Email",f_msg:"Message",f_send:"Send message",f_ok:"Message sent — we'll be in touch soon!",f_err:"Something went wrong. Please try again."},
   it:{nav_about:"Chi siamo",nav_gallery:"Gallery",nav_projects:"Progetti",nav_sponsors:"Sponsor",nav_work:"Collabora",
     hero_sub:"Due kitesurfer professioniste. Una storia sola. Tra Tarifa, il Brasile e i migliori spot del mondo.",
-    tag1:"8 volte Campionessa",tag2:"Duotone · ION",tag3:"Big Air · Freestyle",scroll:"Scorri",
+    tag1:"9 volte Campionessa",tag2:"Duotone · ION",tag3:"Big Air · Freestyle",scroll:"Scorri",
     about_eyebrow:"Chi siamo",about_title:"Più di un team.<br>Una storia insieme.",
     about_p:"Mika & Sofi sono due kitesurfer professioniste e una coppia, unite dalla stessa passione ai massimi livelli dello sport. Insieme portano performance di livello mondiale, una storia autentica e un legame forte con mare, vento e community. Uno più uno fa molto più di due.",
     stat1:"Titoli Mondiali",stat2:"Atlete Pro",stat3:"Community",
     mika_nat:"Brasile / USA",
-    mika_bio:"Una delle kitesurfer più vincenti di sempre. 8 volte Campionessa del Mondo tra Freestyle e Big Air, ai vertici da quando aveva tredici anni. Nata sulla costa del Ceará, in Brasile, Mika unisce talento puro e allenamento quotidiano, ed è nota per spingere i limiti del kitesurf femminile.",
-    m_2025:"Campionessa Mondiale GKA Big Air",m_2023:"Campionessa Mondiale GKA Big Air",m_2022b:"Campionessa Mondiale GKA Big Air",m_2022:"Campionessa Mondiale GKA Freestyle",m_2021:"Campionessa Mondiale GKA Freestyle",m_2019:"Campionessa Mondiale GKA Freestyle",m_2018w:"Campionessa Mondiale WKL Freestyle",m_2018:"Campionessa Mondiale GKA Air Games",
+    mika_bio:"Una delle kitesurfer più vincenti di sempre. 9 volte Campionessa del Mondo tra Freestyle e Big Air, ai vertici da quando aveva tredici anni. Nata sulla costa del Ceará, in Brasile, Mika unisce talento puro e allenamento quotidiano, ed è nota per spingere i limiti del kitesurf femminile.",
+    m_2026:"Campionessa Mondiale GKA Big Air",m_2025:"Campionessa Mondiale GKA Big Air",m_2023:"Campionessa Mondiale GKA Big Air",m_2022b:"Campionessa Mondiale GKA Big Air",m_2022:"Campionessa Mondiale GKA Freestyle",m_2021:"Campionessa Mondiale GKA Freestyle",m_2019:"Campionessa Mondiale GKA Freestyle",m_2018w:"Campionessa Mondiale WKL Freestyle",m_2018:"Campionessa Mondiale GKA Air Games",
     sofi_nat:"Italia",
     sofi_bio:"Kitesurfer professionista italiana e team rider Duotone, in gara sul GKA World Tour tra Big Air, Freestyle e Strapless. In rapida crescita, versatile e senza paura, Sofi si allena a Tarifa e compete ai massimi livelli del kitesurf femminile nel mondo.",
     s_2025:"GKA Sylt",s_2023b:"Campionessa Mondiale Junior Strapless",s_2023:"GKA Sylt",s_2022:"Vice Campionessa Mondiale Junior Strapless",
@@ -589,13 +615,13 @@ const I18N={
     f_name:"Nome",f_email:"Email",f_msg:"Messaggio",f_send:"Invia messaggio",f_ok:"Messaggio inviato — ti risponderemo presto!",f_err:"Qualcosa è andato storto. Riprova."},
   pt:{nav_about:"Sobre",nav_gallery:"Gallery",nav_projects:"Projetos",nav_sponsors:"Patrocinadores",nav_work:"Trabalhe conosco",
     hero_sub:"Duas kitesurfistas profissionais. Uma história. Vivendo e treinando entre Tarifa, o Brasil e os melhores spots do mundo.",
-    tag1:"8x Campeã Mundial",tag2:"Duotone · ION",tag3:"Big Air · Freestyle",scroll:"Rolar",
+    tag1:"9x Campeã Mundial",tag2:"Duotone · ION",tag3:"Big Air · Freestyle",scroll:"Rolar",
     about_eyebrow:"Sobre nós",about_title:"Mais que um time.<br>Uma parceria.",
     about_p:"Mika & Sofi são duas kitesurfistas profissionais e um casal, unidas pela mesma paixão no mais alto nível do esporte. Juntas trazem performance de nível mundial, uma história autêntica e uma forte conexão com o mar, o vento e a comunidade. Um mais um é muito mais que dois.",
     stat1:"Títulos Mundiais",stat2:"Atletas Pro",stat3:"Comunidade",
     mika_nat:"Brasil / EUA",
-    mika_bio:"Uma das kitesurfistas mais vitoriosas de todos os tempos. 8 vezes Campeã Mundial em Freestyle e Big Air, no topo desde os treze anos. Nascida no litoral do Ceará, no Brasil, Mika une talento puro a treino diário e é conhecida por levar o kitesurf feminino ao limite.",
-    m_2025:"Campeã Mundial GKA Big Air",m_2023:"Campeã Mundial GKA Big Air",m_2022b:"Campeã Mundial GKA Big Air",m_2022:"Campeã Mundial GKA Freestyle",m_2021:"Campeã Mundial GKA Freestyle",m_2019:"Campeã Mundial GKA Freestyle",m_2018w:"Campeã Mundial WKL Freestyle",m_2018:"Campeã Mundial GKA Air Games",
+    mika_bio:"Uma das kitesurfistas mais vitoriosas de todos os tempos. 9 vezes Campeã Mundial em Freestyle e Big Air, no topo desde os treze anos. Nascida no litoral do Ceará, no Brasil, Mika une talento puro a treino diário e é conhecida por levar o kitesurf feminino ao limite.",
+    m_2026:"Campeã Mundial GKA Big Air",m_2025:"Campeã Mundial GKA Big Air",m_2023:"Campeã Mundial GKA Big Air",m_2022b:"Campeã Mundial GKA Big Air",m_2022:"Campeã Mundial GKA Freestyle",m_2021:"Campeã Mundial GKA Freestyle",m_2019:"Campeã Mundial GKA Freestyle",m_2018w:"Campeã Mundial WKL Freestyle",m_2018:"Campeã Mundial GKA Air Games",
     sofi_nat:"Itália",
     sofi_bio:"Kitesurfista profissional da Itália e team rider Duotone, competindo no GKA World Tour em Big Air, Freestyle e Strapless. Em ascensão, versátil e destemida, Sofi treina em Tarifa e compete no mais alto nível do kitesurf feminino pelo mundo.",
     s_2025:"GKA Sylt",s_2023b:"Campionessa Mondiale Junior Strapless",s_2023:"GKA Sylt",s_2022:"Vice Campionessa Mondiale Junior Strapless",
@@ -606,16 +632,27 @@ const I18N={
     work_p:"Fazemos parceria com marcas que compartilham nossos valores: storytelling autêntico, performance real e visão de longo prazo. De conteúdo e viagem a lifestyle e performance, criamos parcerias que vão além de um único post.",
     f_name:"Nome",f_email:"Email",f_msg:"Mensagem",f_send:"Enviar mensagem",f_ok:"Mensagem enviada — entraremos em contato em breve!",f_err:"Algo deu errado. Tente novamente."}
 };
+const LANG_META={en:{flag:'🇬🇧',code:'EN'},it:{flag:'🇮🇹',code:'IT'},pt:{flag:'🇧🇷',code:'PT'}};
 function setLang(l){
   document.documentElement.lang=l;
   document.querySelectorAll('[data-i]').forEach(el=>{
     const k=el.getAttribute('data-i'); if(I18N[l][k]!==undefined) el.innerHTML=I18N[l][k];
   });
-  document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.lang===l));
+  const m=LANG_META[l]||LANG_META.en;
+  const flagEl=document.getElementById('langFlag'); if(flagEl) flagEl.textContent=m.flag;
+  const codeEl=document.getElementById('langCode'); if(codeEl) codeEl.textContent=m.code;
+  document.querySelectorAll('#langDrop li').forEach(li=>li.classList.toggle('on',li.dataset.lang===l));
   try{localStorage.setItem('lang',l)}catch(e){}
   if(typeof splitTitles==='function') splitTitles();
 }
-document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+/* dropdown toggle */
+const langSelect=document.getElementById('langSelect');
+const langBtn=document.getElementById('langBtn');
+if(langBtn){
+  langBtn.addEventListener('click',e=>{e.stopPropagation();const open=langSelect.classList.toggle('open');langBtn.setAttribute('aria-expanded',open);});
+  document.querySelectorAll('#langDrop li').forEach(li=>li.addEventListener('click',()=>{setLang(li.dataset.lang);langSelect.classList.remove('open');langBtn.setAttribute('aria-expanded','false');}));
+  document.addEventListener('click',()=>{langSelect.classList.remove('open');langBtn.setAttribute('aria-expanded','false');});
+}
 let saved='en'; try{saved=localStorage.getItem('lang')||'en'}catch(e){}
 setLang(saved);
 
