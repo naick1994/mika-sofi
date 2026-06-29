@@ -49,10 +49,11 @@ header.scrolled .nav-logo img{height:42px;opacity:1}
 .lang-select.open .lang-arrow{transform:rotate(180deg)}
 .lang-drop{display:none;position:absolute;right:0;top:calc(100% + 8px);background:var(--bg-card);border:1px solid var(--line);border-radius:8px;overflow:hidden;min-width:148px;z-index:200;box-shadow:0 12px 32px rgba(0,0,0,.5)}
 .lang-select.open .lang-drop{display:block}
-.lang-drop li{display:flex;align-items:center;gap:10px;padding:10px 14px;font-size:13px;font-weight:400;color:var(--ink-soft);cursor:pointer;transition:background .15s,color .15s;list-style:none}
+.lang-drop li{display:flex;align-items:center;gap:10px;padding:10px 14px;font-size:13px;font-weight:400;color:var(--ink-soft);cursor:pointer;transition:background .15s,color .15s;list-style:none;line-height:1}
 .lang-drop li:hover{background:rgba(255,255,255,.05);color:var(--ink)}
 .lang-drop li.on{color:var(--accent-soft);background:rgba(46,155,214,.08)}
-.lang-drop li .flag{font-size:17px}
+.lang-drop li .flag{font-size:18px;line-height:1;display:flex;align-items:center}
+.lang-drop li .label{line-height:1}
 .burger{display:none;background:none;border:none;color:var(--ink);font-size:26px;cursor:pointer;line-height:1}
 
 /* HERO */
@@ -366,9 +367,9 @@ h2.title.in::after{width:64px}
           <span class="lang-arrow">▾</span>
         </button>
         <ul class="lang-drop" id="langDrop" role="listbox">
-          <li data-lang="en" class="on" role="option"><span class="flag">🇬🇧</span> English</li>
-          <li data-lang="it" role="option"><span class="flag">🇮🇹</span> Italiano</li>
-          <li data-lang="pt" role="option"><span class="flag">🇧🇷</span> Português</li>
+          <li data-lang="en" class="on" role="option"><span class="flag">🇬🇧</span><span class="label">English</span></li>
+          <li data-lang="it" role="option"><span class="flag">🇮🇹</span><span class="label">Italiano</span></li>
+          <li data-lang="pt" role="option"><span class="flag">🇧🇷</span><span class="label">Português</span></li>
         </ul>
       </div>
     </div>
